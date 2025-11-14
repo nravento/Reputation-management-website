@@ -11,14 +11,14 @@ const services = [
     icon: Globe,
     title: "Custom Web Development for SEO",
     description:
-      "Strategically designed and developed websites optimized for search engines to establish your authoritative online presence and improve rankings.",
+      "Lightning-fast website development with a focus on local SEO. We build secure, search-optimized sites that help home service businesses rank for their specific cities, counties, and zip codes—delivered in just 72 hours.",
     color: "from-primary to-secondary",
   },
   {
     icon: Star,
     title: "Review Management & Generation",
     description:
-      "Comprehensive review management including systematic generation of authentic positive reviews, professional response management, and reputation monitoring across all major review platforms.",
+      "Build trust in your local community with strategic review management. We help home service businesses generate authentic reviews, respond professionally, and monitor their reputation across all major platforms.",
     color: "from-secondary to-accent",
   },
 ]

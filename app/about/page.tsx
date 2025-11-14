@@ -8,11 +8,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "About Us - Reputation Shield LLC",
   description:
-    "Learn about Reputation Shield LLC, our mission to protect online reputations, and our team of experts in web development and review management.",
+    "Learn about Reputation Shield LLC and how we help home service businesses get found by their local community through fast web development and local SEO.",
   openGraph: {
     title: "About Us - Reputation Shield LLC",
     description:
-      "Learn about Reputation Shield LLC, our mission to protect online reputations, and our team of experts.",
+      "Helping home service businesses dominate their local market with 72-hour website delivery and local SEO expertise.",
   },
 }
 
@@ -49,12 +49,10 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-                Protecting What Matters Most: Your Reputation
+                Helping Home Service Businesses Get Found Locally
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed text-pretty">
-                Reputation Shield LLC was founded on the belief that every business deserves a strong, positive online
-                presence. We combine technical expertise with strategic thinking to help you control your digital
-                narrative.
+                Reputation Shield LLC specializes in fast, secure website development and local SEO for home service businesses nationwide. We help you dominate your local market in just 72 hours.
               </p>
             </div>
           </div>
@@ -67,19 +65,13 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Our Story</h2>
               <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  In today's digital world, your online reputation can make or break your business. Reputation Shield
-                  LLC was created to address the growing need for professional, ethical reputation management services
-                  that deliver real results.
+                  Home service businesses need to be found by their local community to thrive. Reputation Shield LLC was created to give plumbers, electricians, HVAC technicians, landscapers, and other home service professionals the online presence they need to succeed.
                 </p>
                 <p>
-                  We specialize in two core areas: custom web development optimized for search engines and
-                  comprehensive review management. Our approach is built on transparency, white-hat techniques, and a
-                  deep understanding of how search engines and review platforms work.
+                  We know that time is money. That's why we deliver professionally designed, secure websites in just 72 hours. But speed doesn't mean cutting corners—every site we build is optimized for local SEO, targeting the specific cities, counties, and zip codes where your customers are searching.
                 </p>
                 <p>
-                  Every business faces unique challenges, which is why we never use cookie-cutter solutions. Instead, we
-                  take the time to understand your industry, your competitors, and your specific goals before crafting a
-                  customized strategy designed to protect and enhance your online presence.
+                  Combined with our review management services, we help you build trust in your community and ensure that when someone needs your services, they find you first.
                 </p>
               </div>
             </div>
@@ -116,8 +108,7 @@ export default function AboutPage() {
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
               <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-                To empower businesses with the tools, strategies, and support they need to build and maintain a stellar
-                online reputation through custom web development and professional review management.
+                To help home service businesses across the nation get found by their local community through fast, secure website development and targeted local SEO strategies.
               </p>
             </div>
           </div>
