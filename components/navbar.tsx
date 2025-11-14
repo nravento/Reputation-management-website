@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/90 backdrop-blur-sm shadow-sm"
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -48,8 +48,8 @@ export function Navbar() {
             className="flex items-center gap-2 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg px-2 py-1"
             aria-label="Reputation Shield LLC - Home"
           >
-            <Shield className={`w-6 h-6 ${scrolled ? "text-secondary" : "text-primary-foreground"}`} />
-            <span className={scrolled ? "text-foreground" : "text-primary-foreground"}>
+            <Shield className="w-6 h-6 text-secondary" />
+            <span className="text-foreground">
               Reputation Shield<span className="hidden sm:inline"> LLC</span>
             </span>
           </Link>
@@ -62,12 +62,8 @@ export function Navbar() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary rounded px-2 py-1 ${
                   isActive(link.href)
-                    ? scrolled
-                      ? "text-secondary"
-                      : "text-primary-foreground font-semibold"
-                    : scrolled
-                      ? "text-foreground/80 hover:text-foreground"
-                      : "text-primary-foreground/90 hover:text-primary-foreground"
+                    ? "text-secondary font-semibold"
+                    : "text-foreground/80 hover:text-foreground"
                 }`}
                 aria-label={`Navigate to ${link.label}`}
                 aria-current={isActive(link.href) ? "page" : undefined}
@@ -78,7 +74,7 @@ export function Navbar() {
             <Button
               asChild
               size="sm"
-              variant={scrolled ? "default" : "secondary"}
+              variant="default"
               className="focus:ring-2 focus:ring-secondary"
             >
               <Link href="/contact" aria-label="Get started with free consultation">
@@ -90,9 +86,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary ${
-              scrolled ? "text-foreground" : "text-primary-foreground"
-            }`}
+            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
