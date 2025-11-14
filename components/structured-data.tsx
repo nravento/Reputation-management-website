@@ -9,12 +9,16 @@ export function StructuredData() {
       "Reputation Shield LLC specializes in custom web development for SEO and review management & generation to protect and enhance online reputation.",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "8520 Allison Pointe Blvd Ste 223",
+      addressLocality: "Indianapolis",
+      addressRegion: "IN",
+      postalCode: "46250",
       addressCountry: "US",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      email: "info@reputationshield.com",
+      email: "Contact@Reputationshieldllc.com",
     },
     sameAs: [
       "https://www.facebook.com/reputationshield",

@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import Link from "next/link"
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Reputation Shield LLC</h3>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Custom web development for SEO and review management to control your online reputation.
+              Protecting your online reputation through custom web development and professional review management.
             </p>
           </div>
 
@@ -16,36 +17,36 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
                   Custom Web Development
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
                   SEO Optimization
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
                   Review Management
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  href="/services"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
                   Review Generation
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -54,42 +55,37 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-primary-foreground/80">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/services"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
-                  Case Studies
-                </a>
+                  Our Services
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/contact"
                   className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
                 >
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  Careers
-                </a>
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </nav>
 
           <div>
-            <h4 className="font-semibold mb-4">Connect</h4>
+            <h4 className="font-semibold mb-4">Connect With Us</h4>
+            <p className="text-primary-foreground/80 text-sm mb-4 leading-relaxed">
+              Follow us on social media for reputation management tips and industry insights.
+            </p>
             <div className="flex gap-3" role="group" aria-label="Social media links">
               <a
                 href="#"

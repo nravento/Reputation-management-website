@@ -2,25 +2,25 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Wrench, FileText, CheckCircle2 } from "lucide-react"
+import { Zap, MapPin, Shield } from 'lucide-react'
 
 const features = [
   {
-    icon: Wrench,
-    title: "Custom Solutions",
+    icon: Zap,
+    title: "72-Hour Turnaround",
     description:
-      "Tailored strategies designed specifically for your industry, challenges, and goals—never cookie-cutter approaches.",
+      "Get your professional website up and running fast. We deliver secure, SEO-optimized sites in just 72 hours so you can start attracting local customers immediately.",
   },
   {
-    icon: FileText,
-    title: "Transparent Reporting",
-    description: "Detailed monthly reports showing rankings, review growth, sentiment analysis, and ROI metrics.",
+    icon: MapPin,
+    title: "Local SEO Experts",
+    description: "Specializing in hyper-local search optimization for home service businesses. We target specific cities, counties, and zip codes to connect you with customers in your service area.",
   },
   {
-    icon: CheckCircle2,
-    title: "White-Hat Techniques",
+    icon: Shield,
+    title: "Secure Websites",
     description:
-      "Ethical, sustainable strategies that comply with search engine guidelines and build long-term success.",
+      "Your website's security matters. We build sites with modern security practices to protect your business and your customers.",
   },
 ]
 
