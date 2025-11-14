@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
-import { MapPin, Phone, Mail, Send } from "lucide-react"
+import { MapPin, Mail, Send } from 'lucide-react'
 import { useToast } from "@/hooks/use-toast"
 
 export function ContactSection() {
@@ -64,22 +64,13 @@ export function ContactSection() {
                   <div>
                     <div className="font-semibold mb-1">Office Location</div>
                     <div className="text-sm text-muted-foreground">
-                      123 Business Plaza
+                      8520 Allison Pointe Blvd Ste 223
                       <br />
-                      New York, NY 10001
+                      Indianapolis, IN 46250
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-secondary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold mb-1">Phone</div>
-                    <div className="text-sm text-muted-foreground">(555) 123-4567</div>
-                  </div>
-                </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
@@ -87,7 +78,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <div className="font-semibold mb-1">Email</div>
-                    <div className="text-sm text-muted-foreground">contact@reputationpro.com</div>
+                    <div className="text-sm text-muted-foreground">Contact@Reputationshieldllc.com</div>
                   </div>
                 </div>
               </CardContent>
@@ -119,19 +110,11 @@ export function ContactSection() {
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium">
-                        Phone
-                      </label>
-                      <Input id="phone" type="tel" placeholder="(555) 123-4567" disabled={isSubmitting} />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="company" className="text-sm font-medium">
-                        Company
-                      </label>
-                      <Input id="company" placeholder="Your Company" disabled={isSubmitting} />
-                    </div>
+                  <div className="space-y-2">
+                    <label htmlFor="company" className="text-sm font-medium">
+                      Company
+                    </label>
+                    <Input id="company" placeholder="Your Company" disabled={isSubmitting} />
                   </div>
 
                   <div className="space-y-2">
