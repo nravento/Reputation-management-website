@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Shield } from 'lucide-react'
+import { Menu, X, Shield, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { usePathname } from 'next/navigation'
@@ -10,13 +10,21 @@ import { usePathname } from 'next/navigation'
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { 
+    href: "/services", 
+    label: "Services",
+    submenu: [
+      { href: "/services#seo", label: "Local SEO" },
+      { href: "/services#reviews", label: "Review Management" },
+    ]
+  },
   { href: "/contact", label: "Contact" },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -35,68 +43,129 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-background/90 backdrop-blur-sm shadow-sm"
+        scrolled ? "glass-card shadow-lg py-2" : "bg-background/60 backdrop-blur-sm shadow-sm py-3"
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg px-2 py-1"
-            aria-label="Reputation Shield LLC - Home"
-          >
-            <Shield className="w-6 h-6 text-secondary" />
-            <span className="text-foreground">
-              Reputation Shield<span className="hidden sm:inline"> LLC</span>
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary rounded px-2 py-1 ${
-                  isActive(link.href)
-                    ? "text-secondary font-semibold"
-                    : "text-foreground/80 hover:text-foreground"
-                }`}
-                aria-label={`Navigate to ${link.label}`}
-                aria-current={isActive(link.href) ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button
-              asChild
-              size="sm"
-              variant="default"
-              className="focus:ring-2 focus:ring-secondary"
+        <div className="flex items-center justify-between h-16 md:h-18">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/"
+              className="flex items-center gap-2 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg px-2 py-1"
+              aria-label="Reputation Shield LLC - Home"
             >
-              <Link href="/contact" aria-label="Get started with free consultation">
-                Get Started
-              </Link>
-            </Button>
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              >
+                <Shield className="w-6 h-6 text-secondary" />
+              </motion.div>
+              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                Reputation Shield<span className="hidden sm:inline"> LLC</span>
+              </span>
+            </Link>
+          </motion.div>
+
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setHoveredItem(link.href)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium transition-all hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary rounded px-3 py-2 flex items-center gap-1 ${
+                    isActive(link.href)
+                      ? "text-secondary font-semibold"
+                      : "text-foreground/80 hover:text-foreground"
+                  }`}
+                  aria-label={`Navigate to ${link.label}`}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                >
+                  {link.label}
+                  {link.submenu && (
+                    <motion.div
+                      animate={{ rotate: hoveredItem === link.href ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </motion.div>
+                  )}
+                </Link>
+                
+                {link.submenu && hoveredItem === link.href && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute top-full left-0 mt-2 w-56 glass-card rounded-xl shadow-xl overflow-hidden"
+                  >
+                    {link.submenu.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block px-4 py-3 text-sm hover:bg-primary/10 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+            ))}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                asChild
+                size="sm"
+                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-md hover:shadow-lg transition-all"
+              >
+                <Link href="/contact" aria-label="Get started with free consultation">
+                  Get Started
+                </Link>
+              </Button>
+            </motion.div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"
+            className="md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground glass-card"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -104,33 +173,45 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-background border-t border-border overflow-hidden"
+            transition={{ duration: 0.3 }}
+            className="md:hidden glass-card border-t border-border/50 overflow-hidden"
             role="menu"
           >
-            <div className="container mx-auto px-4 py-4 space-y-3">
-              {navLinks.map((link) => (
-                <Link
+            <div className="container mx-auto px-4 py-4 space-y-2">
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-secondary ${
-                    isActive(link.href)
-                      ? "text-secondary font-semibold bg-secondary/10"
-                      : "text-foreground/80 hover:text-foreground hover:bg-muted"
-                  }`}
-                  role="menuitem"
-                  aria-label={`Navigate to ${link.label}`}
-                  aria-current={isActive(link.href) ? "page" : undefined}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block w-full text-left px-4 py-3 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-secondary ${
+                      isActive(link.href)
+                        ? "text-secondary font-semibold bg-secondary/10"
+                        : "text-foreground/80 hover:text-foreground hover:bg-muted"
+                    }`}
+                    role="menuitem"
+                    aria-label={`Navigate to ${link.label}`}
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <Button asChild className="w-full focus:ring-2 focus:ring-secondary" role="menuitem">
-                <Link href="/contact" onClick={() => setIsOpen(false)} aria-label="Get started with free consultation">
-                  Get Started
-                </Link>
-              </Button>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+              >
+                <Button asChild className="w-full bg-gradient-to-r from-primary to-secondary" role="menuitem">
+                  <Link href="/contact" onClick={() => setIsOpen(false)} aria-label="Get started with free consultation">
+                    Get Started
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         )}
