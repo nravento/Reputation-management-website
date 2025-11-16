@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Shield, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
@@ -27,6 +27,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const pathname = usePathname()
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,9 +37,31 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current)
+      }
+    }
+  }, [])
+
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
     return pathname.startsWith(href)
+  }
+
+  const handleMouseEnter = (href: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+    setHoveredItem(href)
+  }
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setHoveredItem(null)
+    }, 400)
   }
 
   return (
@@ -74,8 +97,8 @@ export function Navbar() {
               <div
                 key={link.href}
                 className="relative"
-                onMouseEnter={() => setHoveredItem(link.href)}
-                onMouseLeave={() => setHoveredItem(null)}
+                onMouseEnter={() => handleMouseEnter(link.href)}
+                onMouseLeave={handleMouseLeave}
               >
                 <Link
                   href={link.href}
@@ -104,6 +127,8 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     className="absolute top-full left-0 mt-2 w-56 glass-card rounded-xl shadow-xl overflow-hidden"
+                    onMouseEnter={() => handleMouseEnter(link.href)}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {link.submenu.map((item) => (
                       <Link
@@ -200,6 +225,20 @@ export function Navbar() {
                   >
                     {link.label}
                   </Link>
+                  {link.submenu && (
+                    <div className="ml-4 mt-1 space-y-1">
+                      {link.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block px-4 py-2 text-sm text-foreground/70 hover:text-foreground hover:bg-muted rounded-lg transition-all"
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
               <motion.div

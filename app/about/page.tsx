@@ -65,13 +65,13 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Our Story</h2>
               <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  Home service businesses need to be found by their local community to thrive. Reputation Shield LLC was created to give plumbers, electricians, HVAC technicians, landscapers, and other home service professionals the online presence they need to succeed.
+                  Home service businesses like yours (plumbers, electricians, HVAC professionals, landscapers, and more) need a strong online presence to connect with local customers and thrive. That's why I founded Reputation Shield LLC. I identified a clear gap in the market: many web designers and larger marketing agencies often bundle in unnecessary services, which drives up costs without adding real value. We focus solely on what you truly need: a secure, high-quality website paired with targeted local SEO to ensure you're visible to customers in your service area.
                 </p>
                 <p>
-                  We know that time is money. That's why we deliver professionally designed, secure websites in just 72 hours. But speed doesn't mean cutting corners—every site we build is optimized for local SEO, targeting the specific cities, counties, and zip codes where your customers are searching.
+                  We understand that time is money in your industry. That's why we deliver professionally designed, secure websites in just 72 hours. We never cut corners; each site is optimized for local search, focusing on the specific cities, counties, and zip codes where your potential clients are looking. By avoiding those extraneous upsells, we're able to provide these essential services at a fraction of the cost charged by bigger agencies.
                 </p>
                 <p>
-                  Combined with our review management services, we help you build trust in your community and ensure that when someone needs your services, they find you first.
+                  Combined with our review management services, we help you establish genuine trust within your community, ensuring that when someone needs your expertise, your business is the first they find.
                 </p>
               </div>
             </div>
