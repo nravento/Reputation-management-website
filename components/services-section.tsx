@@ -9,6 +9,13 @@ import { useState } from "react"
 
 const services = [
   {
+    icon: Code,
+    title: "Website Creation",
+    description:
+      "Lightning-fast, secure websites built specifically for home service businesses. Delivered in 72 hours with mobile-responsive design, fast loading speeds, and SEO optimization built in from day one.",
+    color: "from-accent to-primary"
+  },
+  {
     icon: Globe,
     title: "Local SEO",
     description:
@@ -21,13 +28,6 @@ const services = [
     description:
       "Run strategic review campaigns that generate authentic positive reviews and funnel them directly to your website. Build trust and credibility with automated review generation that drives new business.",
     color: "from-secondary to-accent"
-  },
-  {
-    icon: Code,
-    title: "Website Creation",
-    description:
-      "Lightning-fast, secure websites built specifically for home service businesses. Delivered in 72 hours with mobile-responsive design, fast loading speeds, and SEO optimization built in from day one.",
-    color: "from-accent to-primary"
   },
 ]
 
