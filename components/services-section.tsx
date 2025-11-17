@@ -24,12 +24,12 @@ const services = [
     icon: Star,
     title: "Review Management",
     description:
-      "Build trust in your local community with strategic review management. We help you generate authentic reviews, respond professionally, and monitor your reputation across all major platforms.",
+      "Run strategic review campaigns that generate authentic positive reviews and funnel them directly to your website. Build trust and credibility with automated review generation that drives new business.",
     color: "from-secondary to-accent",
     stats: [
-      { label: "Review Boost", value: "3x" },
-      { label: "Response Time", value: "24hr" },
-      { label: "Rating Improve", value: "+0.8" }
+      { label: "Review Boost", value: "5x" },
+      { label: "Funnel Rate", value: "100%" },
+      { label: "Positive Rate", value: "95%" }
     ]
   },
   {

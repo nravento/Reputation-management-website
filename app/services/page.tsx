@@ -27,12 +27,12 @@ const webDevFeatures = [
 ]
 
 const reviewMgmtFeatures = [
-  "Systematic positive review generation",
-  "Professional review response management",
-  "Multi-platform reputation monitoring",
-  "Sentiment analysis and reporting",
-  "Review funnel optimization",
-  "Crisis management support",
+  "Strategic review campaign planning",
+  "Automated review request workflows",
+  "Multi-platform review funneling",
+  "Website review widget integration",
+  "Campaign performance analytics",
+  "Continuous campaign optimization",
 ]
 
 export default function ServicesPage() {
@@ -48,7 +48,7 @@ export default function ServicesPage() {
                 Comprehensive Reputation Management Services
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed text-pretty">
-                Two specialized services designed to protect and enhance your online presence
+                Three specialized services designed to help home service businesses dominate their local market
               </p>
             </div>
           </div>
@@ -112,15 +112,12 @@ export default function ServicesPage() {
                   <div className="w-16 h-16 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
                     <Star className="w-8 h-8 text-secondary" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">Review Management & Generation</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">Review Campaign Services</h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Comprehensive review management including systematic generation of authentic positive reviews,
-                    professional response management, and reputation monitoring across all major review platforms.
+                    Run strategic review campaigns that generate authentic positive reviews from satisfied customers and funnel them directly to your website and major review platforms.
                   </p>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                    Reviews are the new word-of-mouth. We help you systematically generate genuine positive reviews from
-                    satisfied customers while professionally managing and responding to all feedback across Google,
-                    Yelp, Facebook, and more.
+                    Our automated review campaigns make it easy for happy customers to leave positive feedback. We then funnel those reviews to your website and Google Business Profile, building social proof that converts visitors into customers.
                   </p>
                   <Button asChild size="lg">
                     <Link href="/contact">Get Started</Link>

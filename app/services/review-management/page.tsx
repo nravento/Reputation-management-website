@@ -1,12 +1,12 @@
 import { Metadata } from 'next'
-import { Star, MessageSquare, TrendingUp, Shield, Bell, BarChart3 } from 'lucide-react'
+import { Star, MessageSquare, TrendingUp, Target, Zap, BarChart3 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Navbar } from '@/components/navbar'
 
 export const metadata: Metadata = {
-  title: 'Review Management Services | Reputation Shield LLC',
-  description: 'Build a stellar online reputation with our comprehensive review management services. Generate more positive reviews and respond professionally to all feedback.',
+  title: 'Review Campaign Services | Reputation Shield LLC',
+  description: 'Run strategic review campaigns that generate authentic positive reviews and funnel them to your website. Build trust and credibility with automated review generation.',
 }
 
 export default function ReviewManagementPage() {
@@ -25,21 +25,21 @@ export default function ReviewManagementPage() {
               <div className="inline-block px-4 py-2 glass-card rounded-full mb-4">
                 <span className="text-sm font-medium text-secondary flex items-center gap-2">
                   <Star className="w-4 h-4" />
-                  Review Management
+                  Review Campaign Services
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-balance">
-                Turn Reviews Into Your{' '}
+                Generate Authentic Reviews{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Competitive Advantage
+                  That Drive Business Growth
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground text-pretty max-w-2xl mx-auto">
-                Build a stellar online reputation with automated review generation, professional response management, and comprehensive monitoring across all platforms.
+                Run strategic review campaigns that automatically collect positive reviews from satisfied customers and funnel them directly to your website and review platforms.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button asChild size="lg" className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-xl transition-all">
-                  <Link href="/contact">Get Started Today</Link>
+                  <Link href="/contact">Launch Your Campaign</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="glass-card hover:bg-muted/50">
                   <Link href="#features">See How It Works</Link>
@@ -71,13 +71,13 @@ export default function ReviewManagementPage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
               <h2 className="text-3xl md:text-5xl font-bold">
-                Complete Review{' '}
+                Automated Review{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Management Solution
+                  Campaign System
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground text-pretty">
-                Everything you need to build and protect your online reputation.
+                Everything you need to generate and showcase positive reviews at scale.
               </p>
             </div>
 
@@ -103,13 +103,13 @@ export default function ReviewManagementPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
               <h2 className="text-3xl md:text-5xl font-bold">
-                How It{' '}
+                How Our Review{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  Works
+                  Campaigns Work
                 </span>
               </h2>
               <p className="text-lg text-muted-foreground text-pretty">
-                Our proven process for building a 5-star reputation.
+                Our proven 4-step process for generating authentic positive reviews.
               </p>
             </div>
 
@@ -135,16 +135,16 @@ export default function ReviewManagementPage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto glass-card p-12 text-center space-y-6 rounded-3xl">
               <h2 className="text-3xl md:text-5xl font-bold">
-                Ready to Build a{' '}
+                Ready to Launch Your{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  5-Star Reputation?
+                  Review Campaign?
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground text-pretty max-w-2xl mx-auto">
-                Start generating more positive reviews and watch your business grow. Get started today with no long-term contracts.
+                Start generating authentic positive reviews that build trust and drive new customers to your business. No contracts required.
               </p>
               <Button asChild size="lg" className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-xl transition-all">
-                <Link href="/contact">Start Your Free Trial</Link>
+                <Link href="/contact">Get Started Today</Link>
               </Button>
             </div>
           </div>
@@ -155,59 +155,59 @@ export default function ReviewManagementPage() {
 }
 
 const stats = [
-  { value: '3.5x', label: 'More Reviews on Average' },
-  { value: '92%', label: 'Positive Response Rate' },
-  { value: '24/7', label: 'Review Monitoring' },
+  { value: '5x', label: 'More Reviews Generated' },
+  { value: '95%', label: 'Positive Review Rate' },
+  { value: '100%', label: 'Funnel to Your Site' },
 ]
 
 const features = [
   {
-    icon: Star,
+    icon: Target,
+    title: 'Targeted Campaign Launch',
+    description: 'Launch strategic review campaigns targeting your happiest customers at the optimal moment after service completion.',
+  },
+  {
+    icon: Zap,
     title: 'Automated Review Requests',
-    description: 'Automatically send review requests to happy customers at the perfect time via SMS and email.',
+    description: 'Automatically send personalized review requests via SMS and email to customers when they\'re most satisfied.',
+  },
+  {
+    icon: Star,
+    title: 'Multi-Platform Funneling',
+    description: 'Funnel positive reviews to your website, Google Business Profile, Facebook, and other platforms where customers search.',
   },
   {
     icon: MessageSquare,
-    title: 'Professional Responses',
-    description: 'We craft and post professional responses to all reviews, turning negatives into positives.',
-  },
-  {
-    icon: Bell,
-    title: 'Real-Time Alerts',
-    description: 'Get instant notifications when new reviews are posted so you can respond quickly.',
+    title: 'Review Widget Integration',
+    description: 'Display your best reviews prominently on your website with our customizable review widget.',
   },
   {
     icon: BarChart3,
-    title: 'Performance Analytics',
-    description: 'Track your review volume, ratings, and sentiment over time with detailed dashboards.',
-  },
-  {
-    icon: Shield,
-    title: 'Reputation Protection',
-    description: 'Monitor and address negative feedback before it damages your reputation.',
+    title: 'Campaign Analytics',
+    description: 'Track campaign performance, review generation rates, and conversion metrics with detailed dashboards.',
   },
   {
     icon: TrendingUp,
-    title: 'Review Generation Campaigns',
-    description: 'Run targeted campaigns to boost your review count and improve your average rating.',
+    title: 'Continuous Optimization',
+    description: 'We continuously optimize your campaigns based on response rates and customer behavior patterns.',
   },
 ]
 
 const process = [
   {
-    title: 'Setup & Integration',
-    description: 'We connect all your review platforms and set up automated workflows.',
+    title: 'Campaign Setup',
+    description: 'We configure your review campaign targeting strategy and automated request workflows.',
   },
   {
-    title: 'Generate Reviews',
-    description: 'Automated requests go out to satisfied customers after every job.',
+    title: 'Launch & Request',
+    description: 'Automated personalized requests go out to satisfied customers via their preferred channel.',
   },
   {
-    title: 'Monitor & Respond',
-    description: 'We monitor all reviews 24/7 and craft professional responses.',
+    title: 'Funnel Reviews',
+    description: 'Positive reviews are automatically funneled to your website and key review platforms.',
   },
   {
-    title: 'Grow Your Reputation',
-    description: 'Watch your ratings improve and new customers roll in.',
+    title: 'Showcase & Convert',
+    description: 'Reviews are prominently displayed on your site, building trust and driving conversions.',
   },
 ]
