@@ -1,10 +1,10 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function HeroSection() {
   const mouseX = useMotionValue(0)
@@ -182,6 +182,17 @@ export function HeroSection() {
               </Button>
             </motion.div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto pt-12"
+          >
+            <StatCard number="72" unit="hrs" label="Hour Delivery" delay={1.2} />
+            <StatCard number="No" unit="Contract ever" label="" delay={1.3} />
+            <StatCard number="24" unit="hrs" label="Support Response" delay={1.4} />
+          </motion.div>
         </motion.div>
       </div>
 
@@ -195,5 +206,54 @@ export function HeroSection() {
         </svg>
       </div>
     </section>
+  )
+}
+
+function StatCard({ number, unit, label, delay }: { number: string; unit: string; label: string; delay: number }) {
+  const [count, setCount] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
+
+  useEffect(() => {
+    if (hasAnimated || isNaN(Number(number))) return
+
+    const target = Number(number)
+    const duration = 2000
+    const steps = 60
+    const increment = target / steps
+    const stepDuration = duration / steps
+
+    let current = 0
+    const timer = setInterval(() => {
+      current += increment
+      if (current >= target) {
+        setCount(target)
+        clearInterval(timer)
+        setHasAnimated(true)
+      } else {
+        setCount(Math.floor(current))
+      }
+    }, stepDuration)
+
+    return () => clearInterval(timer)
+  }, [number, hasAnimated])
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.5 }}
+      whileHover={{ y: -5, scale: 1.02 }}
+      className="glass-card p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all group"
+    >
+      <div className="text-center">
+        <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+          {isNaN(Number(number)) ? number : count}
+          <span className="text-2xl md:text-3xl ml-1">{unit}</span>
+        </div>
+        {label && (
+          <div className="text-sm text-muted-foreground font-medium">{label}</div>
+        )}
+      </div>
+    </motion.div>
   )
 }
