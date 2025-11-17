@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
-import { Shield, Target, Users, Award } from 'lucide-react'
+import { Shield, Handshake, DollarSign } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 import type { Metadata } from "next"
 
@@ -20,22 +20,17 @@ const values = [
   {
     icon: Shield,
     title: "Protection First",
-    description: "Your online reputation is our top priority. We defend and enhance your digital presence.",
+    description: "Your online reputation and security are our top priorities. We build secure, protected websites and defend your digital presence against threats.",
   },
   {
-    icon: Target,
-    title: "Strategic Approach",
-    description: "Data-driven strategies tailored to your specific industry and business goals.",
+    icon: Handshake,
+    title: "Long Term Partnership",
+    description: "We're not just a vendor—we're your partner in growth. We build lasting relationships and provide ongoing support as your business evolves.",
   },
   {
-    icon: Users,
-    title: "Client Partnership",
-    description: "We work alongside you as partners in building and maintaining your reputation.",
-  },
-  {
-    icon: Award,
-    title: "Excellence Delivered",
-    description: "Commitment to quality in every web development project and review management campaign.",
+    icon: DollarSign,
+    title: "Delivering Real Value",
+    description: "No unnecessary upsells or bundled services you don't need. We focus on what truly matters: getting you found by local customers at a fair price.",
   },
 ]
 
@@ -82,13 +77,13 @@ export default function AboutPage() {
         <section className="py-24 md:py-32 bg-muted/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Our Core Values</h2>
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
               {values.map((value, index) => (
                 <Card key={value.title} className="border-border/50 hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 flex gap-4">
+                  <CardContent className="p-6 flex flex-col items-center text-center gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
-                        <value.icon className="w-6 h-6 text-secondary" />
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+                        <value.icon className="w-8 h-8 text-white" />
                       </div>
                     </div>
                     <div className="space-y-2">

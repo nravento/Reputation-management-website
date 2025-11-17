@@ -191,7 +191,7 @@ export function HeroSection() {
           >
             {[
               { value: '72', label: 'Hour Delivery', suffix: 'hrs' },
-              { value: 'No', label: 'Contract', suffix: '' },
+              { value: 'No', label: 'Contract ever', suffix: '' },
               { value: '24', label: 'Support Response', suffix: 'hrs' }
             ].map((stat, i) => (
               <motion.div

@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Globe, Star, ArrowRight } from 'lucide-react'
+import { Globe, Star, Code, ArrowRight } from 'lucide-react'
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -10,26 +10,38 @@ import { useState } from "react"
 const services = [
   {
     icon: Globe,
-    title: "Custom Web Development for SEO",
+    title: "Local SEO",
     description:
-      "Lightning-fast website development with a focus on local SEO. We build secure, search-optimized sites that help home service businesses rank for their specific cities, counties, and zip codes—delivered in just 72 hours.",
+      "Dominate your local market with targeted SEO strategies. We optimize for the specific cities, counties, and zip codes where your customers are searching, ensuring your business shows up first.",
     color: "from-primary to-secondary",
     stats: [
-      { label: "Page Speed", value: "95+" },
+      { label: "Local Rank", value: "Top 3" },
       { label: "SEO Score", value: "100" },
-      { label: "Uptime", value: "99.9%" }
+      { label: "Visibility", value: "+250%" }
     ]
   },
   {
     icon: Star,
-    title: "Review Management & Generation",
+    title: "Review Management",
     description:
-      "Build trust in your local community with strategic review management. We help home service businesses generate authentic reviews, respond professionally, and monitor their reputation across all major platforms.",
+      "Build trust in your local community with strategic review management. We help you generate authentic reviews, respond professionally, and monitor your reputation across all major platforms.",
     color: "from-secondary to-accent",
     stats: [
       { label: "Review Boost", value: "3x" },
       { label: "Response Time", value: "24hr" },
       { label: "Rating Improve", value: "+0.8" }
+    ]
+  },
+  {
+    icon: Code,
+    title: "Website Creation",
+    description:
+      "Lightning-fast, secure websites built specifically for home service businesses. Delivered in 72 hours with mobile-responsive design, fast loading speeds, and SEO optimization built in from day one.",
+    color: "from-accent to-primary",
+    stats: [
+      { label: "Delivery", value: "72hrs" },
+      { label: "Page Speed", value: "95+" },
+      { label: "Uptime", value: "99.9%" }
     ]
   },
 ]
@@ -158,11 +170,11 @@ export function ServicesSection() {
             </span>
           </motion.h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Reputation Shield LLC offers two specialized services to protect and enhance your online reputation
+            Reputation Shield LLC offers three specialized services to help home service businesses dominate their local market
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

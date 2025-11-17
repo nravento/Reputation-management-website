@@ -1,29 +1,24 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Search, Lightbulb, Rocket, LineChart } from "lucide-react"
+import { Users, FileText, Rocket } from 'lucide-react'
 
 const steps = [
   {
-    icon: Search,
-    title: "Discovery & Analysis",
+    icon: Users,
+    title: "Discovery Meeting",
     description:
-      "Comprehensive audit of your online presence, identifying reputation issues and opportunities for improvement.",
+      "We meet to discuss your current online presence and identify key opportunities for improvement. Together, we'll outline your goals and determine the best strategy for your business.",
   },
   {
-    icon: Lightbulb,
-    title: "Strategy Development",
-    description: "Custom action plan tailored to your specific needs, goals, and industry requirements.",
+    icon: FileText,
+    title: "Form Completion",
+    description: "You complete a detailed form to ensure we capture all your requirements and preferences. This ensures your website includes everything that matters most to your business.",
   },
   {
     icon: Rocket,
     title: "Implementation",
-    description: "Execute strategies including content creation, SEO optimization, and reputation building campaigns.",
-  },
-  {
-    icon: LineChart,
-    title: "Ongoing Management",
-    description: "Continuous monitoring, optimization, and reporting to maintain and improve your online reputation.",
+    description: "We build your secure, SEO-optimized website and launch your online presence. Within 72 hours, you'll have a professional site ready to attract local customers.",
   },
 ]
 
@@ -42,11 +37,11 @@ export function ProcessSection() {
             How It Works
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Our proven 4-step process to transform your online reputation
+            Our streamlined 3-step process to get your business online fast
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => (
             <motion.article
               key={step.title}
@@ -54,23 +49,26 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
               className="relative"
             >
               {/* Connecting line */}
               {index < steps.length - 1 && (
                 <div
-                  className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-border -translate-x-1/2 z-0"
+                  className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary to-secondary -translate-x-1/2 z-0"
                   aria-hidden="true"
                 />
               )}
 
-              <div className="relative z-10 text-center space-y-4">
-                <div
-                  className="w-20 h-20 mx-auto rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold shadow-lg"
+              <div className="relative z-10 text-center space-y-4 glass-card p-6 rounded-2xl hover:shadow-xl transition-all duration-300">
+                <motion.div
+                  className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary text-primary-foreground flex items-center justify-center text-2xl font-bold shadow-lg"
                   aria-label={`Step ${index + 1}`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   {index + 1}
-                </div>
+                </motion.div>
                 <div
                   className="w-12 h-12 mx-auto rounded-lg bg-secondary/10 flex items-center justify-center -mt-2"
                   aria-hidden="true"
