@@ -187,10 +187,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto pt-12"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto pt-12"
           >
             <StatCard number="72" unit="hrs" label="Hour Delivery" delay={1.2} />
-            <StatCard number="No" unit="Contract ever" label="" delay={1.3} />
             <StatCard number="24" unit="hrs" label="Support Response" delay={1.4} />
           </motion.div>
         </motion.div>
