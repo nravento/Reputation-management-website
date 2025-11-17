@@ -49,22 +49,6 @@ export default function ReviewManagementPage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center space-y-2">
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    {stat.value}
-                  </div>
-                  <div className="text-muted-foreground">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Features */}
         <section id="features" className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
@@ -153,12 +137,6 @@ export default function ReviewManagementPage() {
     </>
   )
 }
-
-const stats = [
-  { value: '5x', label: 'More Reviews Generated' },
-  { value: '95%', label: 'Positive Review Rate' },
-  { value: '100%', label: 'Funnel to Your Site' },
-]
 
 const features = [
   {

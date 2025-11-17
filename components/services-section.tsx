@@ -13,36 +13,21 @@ const services = [
     title: "Local SEO",
     description:
       "Dominate your local market with targeted SEO strategies. We optimize for the specific cities, counties, and zip codes where your customers are searching, ensuring your business shows up first.",
-    color: "from-primary to-secondary",
-    stats: [
-      { label: "Local Rank", value: "Top 3" },
-      { label: "SEO Score", value: "100" },
-      { label: "Visibility", value: "+250%" }
-    ]
+    color: "from-primary to-secondary"
   },
   {
     icon: Star,
     title: "Review Management",
     description:
       "Run strategic review campaigns that generate authentic positive reviews and funnel them directly to your website. Build trust and credibility with automated review generation that drives new business.",
-    color: "from-secondary to-accent",
-    stats: [
-      { label: "Review Boost", value: "5x" },
-      { label: "Funnel Rate", value: "100%" },
-      { label: "Positive Rate", value: "95%" }
-    ]
+    color: "from-secondary to-accent"
   },
   {
     icon: Code,
     title: "Website Creation",
     description:
       "Lightning-fast, secure websites built specifically for home service businesses. Delivered in 72 hours with mobile-responsive design, fast loading speeds, and SEO optimization built in from day one.",
-    color: "from-accent to-primary",
-    stats: [
-      { label: "Delivery", value: "72hrs" },
-      { label: "Page Speed", value: "95+" },
-      { label: "Uptime", value: "99.9%" }
-    ]
+    color: "from-accent to-primary"
   },
 ]
 
@@ -114,25 +99,6 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           <h3 className="text-2xl font-bold text-balance">{service.title}</h3>
           <p className="text-muted-foreground leading-relaxed text-pretty">{service.description}</p>
           
-          <div className="grid grid-cols-3 gap-3 pt-4">
-            {service.stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.1 }}
-                whileHover={{ y: -3, scale: 1.05 }}
-                className="text-center p-3 rounded-xl bg-gradient-to-br from-muted/50 to-muted/30 backdrop-blur-sm"
-              >
-                <div className={`text-2xl font-bold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
-                  {stat.value}
-                </div>
-                <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-
           <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
             <Button variant="link" asChild className="p-0 h-auto text-primary group/btn">
               <Link href="/services" className="inline-flex items-center gap-2">

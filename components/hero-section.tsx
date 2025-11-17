@@ -182,34 +182,6 @@ export function HeroSection() {
               </Button>
             </motion.div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-            className="grid grid-cols-3 gap-6 max-w-2xl mx-auto pt-12"
-          >
-            {[
-              { value: '72', label: 'Hour Delivery', suffix: 'hrs' },
-              { value: 'No', label: 'Contract ever', suffix: '' },
-              { value: '24', label: 'Support Response', suffix: 'hrs' }
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -5, scale: 1.05 }}
-                className="glass-card p-4 rounded-2xl"
-              >
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                  {stat.value}
-                  <span className="text-2xl">{stat.suffix}</span>
-                </div>
-                <div className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
 
