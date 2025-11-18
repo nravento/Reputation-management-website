@@ -18,7 +18,7 @@ const steps = [
   {
     icon: Rocket,
     title: "Implementation",
-    description: "We build your secure, SEO-optimized website and launch your online presence. Within 72 hours, you'll have a professional site ready to attract local customers.",
+    description: "Typically within 72 hours, you'll have a professional, SEO-optimized website live and ready to start working for your business.",
   },
 ]
 

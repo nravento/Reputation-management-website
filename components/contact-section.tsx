@@ -135,7 +135,7 @@ export function ContactSection() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-secondary" />
-                  <span className="text-sm">24-hour response time</span>
+                  <span className="text-sm">Typically within 24 hours (same business day)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-secondary" />

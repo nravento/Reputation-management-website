@@ -120,11 +120,17 @@ export function HeroSection() {
           >
             <div className="group p-10 border-r border-white/10 hover:bg-white/[0.02] transition-all duration-500">
               <div className="text-5xl font-bold text-white mb-3">72</div>
-              <div className="text-sm text-white/40 uppercase tracking-wider">Hour Delivery</div>
+              <div className="text-sm text-white/40 uppercase tracking-wider mb-2">As Fast As Hours</div>
+              <p className="text-[10px] text-white/30 leading-tight">
+                *Most websites are delivered within 72 hours after we receive all required content and approvals.
+              </p>
             </div>
             <div className="group p-10 hover:bg-white/[0.02] transition-all duration-500">
               <div className="text-5xl font-bold text-white mb-3">24</div>
               <div className="text-sm text-white/40 uppercase tracking-wider">Support Response</div>
+              <p className="text-[10px] text-white/30 leading-tight mt-2">
+                (Typically within 24 hours, same business day)
+              </p>
             </div>
           </motion.div>
         </motion.div>

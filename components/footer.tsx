@@ -55,13 +55,32 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-white/30 text-xs">
-            © {new Date().getFullYear()} Reputation Shield LLC
-          </p>
-          <p className="text-white/30 text-xs">
-            Designed for excellence
-          </p>
+        <div className="border-t border-white/10 pt-12 space-y-8">
+          {/* Legal Links Row */}
+          <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-white/30">
+            <Link href="/" className="hover:text-white/50 transition-colors">Home</Link>
+            <span className="text-white/20">|</span>
+            <Link href="/privacy" className="hover:text-white/50 transition-colors">Privacy Policy</Link>
+            <span className="text-white/20">|</span>
+            <Link href="/terms" className="hover:text-white/50 transition-colors">Terms of Service</Link>
+          </div>
+
+          {/* FTC Disclaimer */}
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-white/20 text-[11px] leading-relaxed">
+              Results may vary depending on many factors. We do not guarantee specific search engine rankings, traffic volumes, or new customer acquisition. Individual results will differ.
+            </p>
+          </div>
+
+          {/* Copyright */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8">
+            <p className="text-white/30 text-xs">
+              © {new Date().getFullYear()} Reputation Shield LLC
+            </p>
+            <p className="text-white/30 text-xs">
+              Designed for excellence
+            </p>
+          </div>
         </div>
       </div>
     </footer>

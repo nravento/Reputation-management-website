@@ -9,7 +9,7 @@ const features = [
     icon: Zap,
     title: "72-Hour Turnaround",
     description:
-      "Get your professional website up and running fast. We deliver secure, SEO-optimized sites in just 72 hours so you can start reaching local customers sooner.",
+      "We typically deliver secure, SEO-optimized sites in as little as 72 hours, helping you get online and start reaching local customers faster.",
     gradient: "from-yellow-400 to-orange-500",
   },
   {
