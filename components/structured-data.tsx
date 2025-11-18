@@ -6,7 +6,7 @@ export function StructuredData() {
     url: "https://reputationshield.com",
     logo: "https://reputationshield.com/logo.png",
     description:
-      "Reputation Shield LLC specializes in custom web development for SEO and review management & generation to protect and enhance online reputation.",
+      "Reputation Shield LLC specializes in fast website creation and local SEO for home service businesses to help them get found by their local community.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "8520 Allison Pointe Blvd Ste 223",
@@ -31,7 +31,7 @@ export function StructuredData() {
   const servicesSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Reputation Management",
+    serviceType: "Web Development and Local SEO",
     provider: {
       "@type": "Organization",
       name: "Reputation Shield LLC",
@@ -39,24 +39,24 @@ export function StructuredData() {
     areaServed: "US",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Reputation Management Services",
+      name: "Digital Services for Home Service Businesses",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Custom Web Development for SEO",
+            name: "Website Creation",
             description:
-              "Strategically designed and developed websites optimized for search engines to establish authoritative online presence and improve rankings.",
+              "Lightning-fast, secure websites built specifically for home service businesses. Delivered in 72 hours with mobile-responsive design and SEO optimization.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Review Management & Generation",
+            name: "Local SEO",
             description:
-              "Comprehensive review management including systematic generation of authentic positive reviews, professional response management, and reputation monitoring across all major review platforms.",
+              "Targeted local SEO strategies to help home service businesses dominate their local market and get found by customers in their service area.",
           },
         },
       ],

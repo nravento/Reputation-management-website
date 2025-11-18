@@ -11,17 +11,17 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Reputation Shield LLC - Custom Web Development & Review Management",
+  title: "Reputation Shield LLC - Local SEO & Website Creation for Home Service Businesses",
   description:
-    "Reputation Shield LLC specializes in custom web development for SEO and review management & generation. Protect and enhance your online reputation with proven strategies.",
+    "Reputation Shield LLC specializes in fast website creation and local SEO for home service businesses. Get found by your local community with our 72-hour website delivery.",
   keywords: [
-    "reputation management",
+    "local SEO",
+    "website creation",
+    "home service websites",
     "custom web development",
     "SEO optimization",
-    "review management",
-    "review generation",
-    "online reputation",
-    "reputation repair",
+    "local search optimization",
+    "small business websites",
   ],
   authors: [{ name: "Reputation Shield LLC" }],
   creator: "Reputation Shield LLC",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://reputationshield.com",
-    title: "Reputation Shield LLC - Custom Web Development & Review Management",
+    title: "Reputation Shield LLC - Local SEO & Website Creation",
     description:
-      "Protect and enhance your online reputation with custom web development for SEO and comprehensive review management services.",
+      "Get found by your local community with fast website creation and targeted local SEO strategies for home service businesses.",
     siteName: "Reputation Shield LLC",
     images: [
       {
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reputation Shield LLC - Custom Web Development & Review Management",
+    title: "Reputation Shield LLC - Local SEO & Website Creation",
     description:
-      "Protect and enhance your online reputation with custom web development for SEO and comprehensive review management services.",
+      "Get found by your local community with fast website creation and targeted local SEO strategies for home service businesses.",
     images: ["/og-image.jpg"],
     creator: "@reputationshield",
   },

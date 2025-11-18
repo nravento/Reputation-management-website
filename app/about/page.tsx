@@ -66,7 +66,7 @@ export default function AboutPage() {
                   We understand that time is money in your industry. That's why we deliver professionally designed, secure websites in just 72 hours. We never cut corners; each site is optimized for local search, focusing on the specific cities, counties, and zip codes where your potential clients are looking. By avoiding those extraneous upsells, we're able to provide these essential services at a fraction of the cost charged by bigger agencies.
                 </p>
                 <p>
-                  Combined with our review management services, we help you establish genuine trust within your community, ensuring that when someone needs your expertise, your business is the first they find.
+                  Our streamlined approach ensures that when someone in your service area needs your expertise, your business is the first they find.
                 </p>
               </div>
             </div>

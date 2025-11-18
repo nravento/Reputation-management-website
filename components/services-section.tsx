@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Globe, Star, Code, ArrowRight } from 'lucide-react'
+import { Globe, Code, ArrowRight } from 'lucide-react'
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -19,13 +19,6 @@ const services = [
     description:
       "Dominate your local market with targeted SEO strategies. We optimize for the specific cities, counties, and zip codes where your customers are searching, ensuring your business shows up first.",
     number: "02"
-  },
-  {
-    icon: Star,
-    title: "Review Management",
-    description:
-      "Run strategic review campaigns that generate authentic positive reviews and funnel them directly to your website. Build trust and credibility with automated review generation that drives new business.",
-    number: "03"
   },
 ]
 

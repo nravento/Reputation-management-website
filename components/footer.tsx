@@ -35,12 +35,6 @@ export function Footer() {
                   <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
-              <li>
-                <Link href="/services/review-management" className="text-white/50 hover:text-white transition-colors text-sm flex items-center gap-2 group">
-                  Review Management
-                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
             </ul>
           </nav>
 

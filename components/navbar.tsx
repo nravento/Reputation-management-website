@@ -15,7 +15,6 @@ const navLinks = [
     label: "Services",
     submenu: [
       { href: "/services/local-seo", label: "Local SEO" },
-      { href: "/services/review-management", label: "Review Management" },
       { href: "/services/website-creation", label: "Website Creation" },
     ]
   },
