@@ -1,8 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from 'lucide-react'
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion"
+import { ArrowRight, Clock, ShieldCheck } from 'lucide-react'
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -35,56 +35,18 @@ export function HeroSection() {
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20"
       aria-labelledby="hero-heading"
     >
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        <motion.div
-          className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-1/3 right-1/4 w-80 h-80 bg-secondary/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -30, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.4, 1],
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.02]"
+        <div 
+          className="absolute inset-0 opacity-[0.015]"
           style={{
-            backgroundImage: "radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)",
-            backgroundSize: "48px 48px",
+            backgroundImage: "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+            backgroundSize: "100px 100px",
           }}
         />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.02),transparent_70%)]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 py-24 md:py-32">
@@ -92,117 +54,88 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          style={{
-            rotateX,
-            rotateY,
-            transformStyle: "preserve-3d",
-          }}
-          className="max-w-6xl mx-auto text-center space-y-8"
+          className="max-w-6xl mx-auto text-center space-y-12"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-6 py-3 glass-card rounded-full shadow-lg"
-          >
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="w-4 h-4 text-secondary" />
-            </motion.div>
-            <span className="text-sm font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              72-Hour Website Delivery
-            </span>
-          </motion.div>
-
-          <h1 id="hero-heading" className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance leading-tight">
+          <h1 id="hero-heading" className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-balance leading-[0.95]">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="block mb-2"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="block text-white"
             >
-              Local SEO & Website Solutions
+              Local SEO &
             </motion.span>
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]"
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="block text-white/40"
             >
-              Tailored for Home Service Businesses
+              Website Solutions
             </motion.span>
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed"
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-xl md:text-2xl text-white/50 max-w-3xl mx-auto font-light leading-relaxed"
           >
-            Fast, secure websites built for local SEO and review management—helping home service businesses dominate their local market
+            Tailored for Home Service Businesses
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="lg"
-                className="group relative text-base px-8 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all overflow-hidden"
-              >
-                <Link href="/contact" aria-label="Get free consultation">
-                  <span className="relative z-10">Free Consultation</span>
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" aria-hidden="true" />
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-accent/20 to-secondary/20"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.6 }}
-                  />
-                </Link>
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="text-base px-8 glass-card border-2 border-primary/40 hover:border-primary/60 hover:bg-primary/5 transition-all backdrop-blur-xl"
-              >
-                <Link href="/services" aria-label="View our services">
-                  View Our Services
-                </Link>
-              </Button>
-            </motion.div>
+            <Button
+              asChild
+              size="lg"
+              className="group bg-white text-black hover:bg-white/90 text-base px-10 h-14 font-medium transition-all duration-300"
+            >
+              <Link href="/contact" aria-label="Get free consultation">
+                Start Project
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="text-base px-10 h-14 border-white/20 text-white hover:bg-white/5 font-medium backdrop-blur-sm transition-all duration-300"
+            >
+              <Link href="/services" aria-label="View our services">
+                View Services
+              </Link>
+            </Button>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto pt-12"
+            transition={{ delay: 1.0, duration: 0.6 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-0 max-w-3xl mx-auto pt-20 border-t border-white/10"
           >
-            <StatCard number="72" unit="hrs" label="Hour Delivery" delay={1.2} />
-            <StatCard number="24" unit="hrs" label="Support Response" delay={1.4} />
+            <div className="group p-10 border-r border-white/10 hover:bg-white/[0.02] transition-all duration-500">
+              <div className="text-5xl font-bold text-white mb-3">72</div>
+              <div className="text-sm text-white/40 uppercase tracking-wider">Hour Delivery</div>
+            </div>
+            <div className="group p-10 hover:bg-white/[0.02] transition-all duration-500">
+              <div className="text-5xl font-bold text-white mb-3">24</div>
+              <div className="text-sm text-white/40 uppercase tracking-wider">Support Response</div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-          <path
-            d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            fill="currentColor"
-            className="text-background"
-          />
-        </svg>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-[1px] h-16 bg-gradient-to-b from-white/0 via-white/30 to-white/0"
+        />
       </div>
     </section>
   )

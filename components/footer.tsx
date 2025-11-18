@@ -1,126 +1,73 @@
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { Facebook, Twitter, Linkedin, Instagram, ArrowUpRight } from 'lucide-react'
 import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground" role="contentinfo">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Reputation Shield LLC</h3>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Protecting your online reputation through custom web development and professional review management.
+    <footer className="bg-background border-t border-white/10 pt-24 pb-12" role="contentinfo">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-8 h-8 bg-white flex items-center justify-center font-bold text-black text-sm">
+                R
+              </div>
+              <span className="text-lg font-bold tracking-tight text-white">
+                REPUTATION<span className="font-light text-white/50">SHIELD</span>
+              </span>
+            </Link>
+            <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+              Empowering home service businesses with cutting-edge digital solutions.
             </p>
           </div>
 
           <nav aria-label="Services">
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
+            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Services</h4>
+            <ul className="space-y-4">
               <li>
-                <Link
-                  href="/services"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  Custom Web Development
+                <Link href="/services/website-creation" className="text-white/50 hover:text-white transition-colors text-sm flex items-center gap-2 group">
+                  Website Creation
+                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  SEO Optimization
+                <Link href="/services/local-seo" className="text-white/50 hover:text-white transition-colors text-sm flex items-center gap-2 group">
+                  Local SEO
+                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
+                <Link href="/services/review-management" className="text-white/50 hover:text-white transition-colors text-sm flex items-center gap-2 group">
                   Review Management
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  Review Generation
+                  <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             </ul>
           </nav>
 
           <nav aria-label="Company">
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-primary-foreground/80">
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-primary-foreground transition-colors focus:outline-none focus:underline"
-                >
-                  Contact Us
-                </Link>
-              </li>
+            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Company</h4>
+            <ul className="space-y-4">
+              <li><Link href="/about" className="text-white/50 hover:text-white transition-colors text-sm">About</Link></li>
+              <li><Link href="/contact" className="text-white/50 hover:text-white transition-colors text-sm">Contact</Link></li>
             </ul>
           </nav>
 
           <div>
-            <h4 className="font-semibold mb-4">Connect With Us</h4>
-            <p className="text-primary-foreground/80 text-sm mb-4 leading-relaxed">
-              Follow us on social media for reputation management tips and industry insights.
-            </p>
-            <div className="flex gap-3" role="group" aria-label="Social media links">
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground"
-                aria-label="Follow us on Facebook"
-              >
-                <Facebook className="w-4 h-4" aria-hidden="true" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground"
-                aria-label="Follow us on Twitter"
-              >
-                <Twitter className="w-4 h-4" aria-hidden="true" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground"
-                aria-label="Follow us on LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" aria-hidden="true" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary-foreground"
-                aria-label="Follow us on Instagram"
-              >
-                <Instagram className="w-4 h-4" aria-hidden="true" />
-              </a>
-            </div>
+            <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Legal</h4>
+            <ul className="space-y-4">
+              <li><Link href="/privacy" className="text-white/50 hover:text-white transition-colors text-sm">Privacy</Link></li>
+              <li><Link href="/terms" className="text-white/50 hover:text-white transition-colors text-sm">Terms</Link></li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Reputation Shield LLC. All rights reserved.</p>
+        <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/30 text-xs">
+            © {new Date().getFullYear()} Reputation Shield LLC
+          </p>
+          <p className="text-white/30 text-xs">
+            Designed for excellence
+          </p>
         </div>
       </div>
     </footer>

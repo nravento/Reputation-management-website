@@ -66,33 +66,28 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card shadow-lg py-2" : "bg-background/60 backdrop-blur-sm shadow-sm py-3"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-background/80 backdrop-blur-xl border-b border-white/10 py-4" : "bg-transparent py-6"
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-18">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-secondary rounded-lg px-2 py-1"
-              aria-label="Reputation Shield LLC - Home"
-            >
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-              >
-                <Shield className="w-6 h-6 text-secondary" />
-              </motion.div>
-              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-                Reputation Shield<span className="hidden sm:inline"> LLC</span>
-              </span>
-            </Link>
-          </motion.div>
+          <Link
+            href="/"
+            className="flex items-center gap-3 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-white rounded px-2 py-1 group"
+            aria-label="Reputation Shield LLC - Home"
+          >
+            <div className="w-8 h-8 bg-white flex items-center justify-center font-bold text-black text-sm">
+              R
+            </div>
+            <span className="text-white tracking-tight">
+              REPUTATION<span className="font-light text-white/50">SHIELD</span>
+            </span>
+          </Link>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <div
                 key={link.href}
@@ -102,22 +97,17 @@ export function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`text-sm font-medium transition-all hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary rounded px-3 py-2 flex items-center gap-1 ${
+                  className={`text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-white rounded px-3 py-2 flex items-center gap-1 ${
                     isActive(link.href)
-                      ? "text-secondary font-semibold"
-                      : "text-foreground/80 hover:text-foreground"
+                      ? "text-white"
+                      : "text-white/60 hover:text-white"
                   }`}
                   aria-label={`Navigate to ${link.label}`}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
                   {link.label}
                   {link.submenu && (
-                    <motion.div
-                      animate={{ rotate: hoveredItem === link.href ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="w-4 h-4" />
-                    </motion.div>
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${hoveredItem === link.href ? 'rotate-180' : ''}`} />
                   )}
                 </Link>
                 
@@ -126,7 +116,7 @@ export function Navbar() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute top-full left-0 mt-2 w-56 glass-card rounded-xl shadow-xl overflow-hidden"
+                    className="absolute top-full left-0 mt-4 w-64 bg-[#0a0a0a] border border-white/10 overflow-hidden"
                     onMouseEnter={() => handleMouseEnter(link.href)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -134,7 +124,7 @@ export function Navbar() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block px-4 py-3 text-sm hover:bg-primary/10 transition-colors"
+                        className="block px-6 py-4 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all border-b border-white/5 last:border-0"
                       >
                         {item.label}
                       </Link>
@@ -143,17 +133,15 @@ export function Navbar() {
                 )}
               </div>
             ))}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="sm"
-                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-md hover:shadow-lg transition-all"
-              >
-                <Link href="/contact" aria-label="Get started with free consultation">
-                  Get Started
-                </Link>
-              </Button>
-            </motion.div>
+            <Button
+              asChild
+              size="sm"
+              className="bg-white text-black hover:bg-white/90 px-6 font-medium transition-all duration-300"
+            >
+              <Link href="/contact" aria-label="Get started with free consultation">
+                Get Started
+              </Link>
+            </Button>
           </div>
 
           <motion.button

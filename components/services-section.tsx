@@ -2,10 +2,8 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Globe, Star, Code, ArrowRight } from 'lucide-react'
-import { motion, useMotionValue, useTransform } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 import Link from "next/link"
-import { useState } from "react"
 
 const services = [
   {
@@ -13,136 +11,71 @@ const services = [
     title: "Website Creation",
     description:
       "Lightning-fast, secure websites built specifically for home service businesses. Delivered in 72 hours with mobile-responsive design, fast loading speeds, and SEO optimization built in from day one.",
-    color: "from-accent to-primary"
+    number: "01"
   },
   {
     icon: Globe,
     title: "Local SEO",
     description:
       "Dominate your local market with targeted SEO strategies. We optimize for the specific cities, counties, and zip codes where your customers are searching, ensuring your business shows up first.",
-    color: "from-primary to-secondary"
+    number: "02"
   },
   {
     icon: Star,
     title: "Review Management",
     description:
       "Run strategic review campaigns that generate authentic positive reviews and funnel them directly to your website. Build trust and credibility with automated review generation that drives new business.",
-    color: "from-secondary to-accent"
+    number: "03"
   },
 ]
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
-  const [isHovered, setIsHovered] = useState(false)
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [5, -5])
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-5, 5])
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-    mouseX.set((e.clientX - centerX) / rect.width)
-    mouseY.set((e.clientY - centerY) / rect.height)
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-    mouseX.set(0)
-    mouseY.set(0)
-  }
-
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX: isHovered ? rotateX : 0,
-        rotateY: isHovered ? rotateY : 0,
-        transformStyle: "preserve-3d",
-      }}
-    >
-      <Card className="h-full glass-card hover:shadow-2xl transition-all duration-500 border-2 border-border/50 hover:border-primary/30 group overflow-hidden relative">
-        <motion.div
-          className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-          aria-hidden="true"
-        />
-        <CardContent className="p-8 space-y-6 relative">
-          <motion.div
-            className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg relative`}
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            style={{ transformStyle: "preserve-3d", transform: "translateZ(50px)" }}
-            aria-hidden="true"
-          >
-            <service.icon className="w-10 h-10 text-white" />
-            <motion.div
-              className="absolute inset-0 bg-white/20 rounded-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 0, 0.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </motion.div>
-          
-          <h3 className="text-2xl font-bold text-balance">{service.title}</h3>
-          <p className="text-muted-foreground leading-relaxed text-pretty">{service.description}</p>
-          
-          <motion.div whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
-            <Button variant="link" asChild className="p-0 h-auto text-primary group/btn">
-              <Link href="/services" className="inline-flex items-center gap-2">
-                Learn more
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </motion.div>
-        </CardContent>
-      </Card>
-    </motion.article>
-  )
-}
-
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background" aria-labelledby="services-heading">
+    <section id="services" className="py-32 bg-background relative" aria-labelledby="services-heading">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-24 border-b border-white/10 pb-12"
         >
-          <motion.h2
-            id="services-heading"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
-              Our Core Services
-            </span>
-          </motion.h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Reputation Shield LLC offers three specialized services to help home service businesses dominate their local market
-          </p>
+          <h2 id="services-heading" className="text-5xl md:text-7xl font-bold text-white tracking-tight">
+            Core Services
+          </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="space-y-0 border-t border-white/10">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group border-b border-white/10 hover:bg-white/[0.02] transition-all duration-500"
+            >
+              <Link href="/services" className="block py-12">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+                  <div className="flex items-start gap-8 flex-1">
+                    <span className="text-sm font-mono text-white/30 pt-2">{service.number}</span>
+                    <div className="flex-1">
+                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
+                        {service.title}
+                      </h3>
+                      <p className="text-white/50 max-w-2xl leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-end">
+                    <div className="w-12 h-12 border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                      <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
