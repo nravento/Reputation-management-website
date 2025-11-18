@@ -175,21 +175,21 @@ const benefits = [
   {
     icon: TrendingUp,
     title: 'Increase Local Visibility',
-    description: 'Show up at the top of search results when customers in your area search for your services. More visibility means more calls and more jobs.',
+    description: 'Our local SEO strategies are designed to improve your business\'s ranking in search results, helping more customers in your area discover your services and potentially leading to more calls and jobs.',
   },
   {
     icon: Users,
     title: 'Attract Ready-to-Buy Customers',
-    description: 'Local searchers have high intent. They need your services now. Capture them at the perfect moment with optimized local presence.',
+    description: 'Local searchers often have high purchase intent and are actively looking for services right now. We help optimize your online presence to better reach these potential customers at the right time.',
   },
   {
     icon: BarChart3,
     title: 'Outrank Your Competition',
-    description: 'Stand out from competitors in your area. We help you dominate the local search landscape in your service area.',
+    description: 'We work to strengthen your position in local search results, making it easier for customers in your service area to find your business over others.',
   },
   {
     icon: Star,
     title: 'Build Trust & Credibility',
-    description: 'A strong local SEO presence with positive reviews builds trust before customers even contact you.',
+    description: 'A well-optimized local SEO presence, supported by positive reviews, helps establish credibility and trust with potential customers before they reach out.',
   },
 ]
