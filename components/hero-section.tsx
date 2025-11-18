@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Clock, ShieldCheck } from 'lucide-react'
-import { motion } from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
