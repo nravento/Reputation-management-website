@@ -9,27 +9,28 @@ const features = [
     icon: Zap,
     title: "72-Hour Turnaround",
     description:
-      "Get your professional website up and running fast. We deliver secure, SEO-optimized sites in just 72 hours so you can start attracting local customers immediately.",
+      "Get your professional website up and running fast. We deliver secure, SEO-optimized sites in just 72 hours so you can start reaching local customers sooner.",
     gradient: "from-yellow-400 to-orange-500",
   },
   {
     icon: MapPin,
     title: "Local SEO Experts",
-    description: "Specializing in hyper-local search optimization for home service businesses. We target specific cities, counties, and zip codes to connect you with customers in your service area.",
+    description: 
+      "Specializing in hyper-local search optimization for home service businesses. We target the specific cities, counties, and zip codes in your service area to help increase your visibility to nearby customers.",
     gradient: "from-blue-400 to-cyan-500",
   },
   {
     icon: Shield,
     title: "Secure Websites",
     description:
-      "Your website's security matters. We build sites with modern security practices to protect your business and your customers.",
+      "Your website's security matters. We build every site using modern security best practices to help protect your business, your reputation, and your customers.",
     gradient: "from-purple-400 to-pink-500",
   },
   {
     icon: TrendingUp,
     title: "Proven Results",
     description:
-      "Our strategies consistently deliver measurable improvements in search rankings, customer engagement, and online reputation.",
+      "Our focused strategies are designed to help improve search rankings, increase customer engagement, and strengthen your online reputation—delivering measurable value without unnecessary extras.",
     gradient: "from-green-400 to-emerald-500",
   },
 ]

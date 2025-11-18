@@ -66,7 +66,7 @@ export default function AboutPage() {
                   We understand that time is money in your industry. That's why we deliver professionally designed, secure websites in just 72 hours. We never cut corners; each site is optimized for local search, focusing on the specific cities, counties, and zip codes where your potential clients are looking. By avoiding those extraneous upsells, we're able to provide these essential services at a fraction of the cost charged by bigger agencies.
                 </p>
                 <p>
-                  Our streamlined approach ensures that when someone in your service area needs your expertise, your business is the first they find.
+                  Our streamlined approach is designed to boost your business's visibility in local search results, helping you connect with more customers in your service area who need your services.
                 </p>
               </div>
             </div>
