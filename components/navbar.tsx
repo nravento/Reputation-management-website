@@ -18,6 +18,7 @@ const navLinks = [
       { href: "/services/website-creation", label: "Website Creation" },
     ]
   },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ]
 
