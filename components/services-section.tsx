@@ -56,7 +56,7 @@ export function ServicesSection() {
                       <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">
                         {service.title}
                       </h3>
-                      <p className="text-white/50 max-w-2xl leading-relaxed">
+                      <p className="text-white/70 max-w-2xl leading-relaxed">
                         {service.description}
                       </p>
                     </div>
