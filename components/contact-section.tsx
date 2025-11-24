@@ -8,8 +8,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
-import { MapPin, Mail, Send, CheckCircle2 } from 'lucide-react'
+import { MapPin, Mail, Send, CheckCircle2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { sendContactEmail } from "@/app/actions/send-email"
 
 export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -20,20 +21,47 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: (formData.get("company") as string) || undefined,
+      message: formData.get("message") as string,
+    }
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    })
+    try {
+      const result = await sendContactEmail(data)
 
-    setIsSubmitting(false)
-    ;(e.target as HTMLFormElement).reset()
+      if (result.success) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you within 24 hours.",
+        })
+        ;(e.target as HTMLFormElement).reset()
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again or email us directly.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      console.error("[v0] Form submission error:", error)
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or email us directly.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden"
+    >
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <motion.div
           className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
@@ -43,7 +71,7 @@ export function ContactSection() {
           }}
           transition={{
             duration: 15,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
           }}
         />
@@ -55,7 +83,7 @@ export function ContactSection() {
           }}
           transition={{
             duration: 18,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
           }}
         />
@@ -163,7 +191,7 @@ export function ContactSection() {
                     <motion.div
                       className="space-y-2"
                       animate={{
-                        scale: focusedField === 'name' ? 1.02 : 1,
+                        scale: focusedField === "name" ? 1.02 : 1,
                       }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -172,10 +200,11 @@ export function ContactSection() {
                       </label>
                       <Input
                         id="name"
+                        name="name"
                         placeholder="John Doe"
                         required
                         disabled={isSubmitting}
-                        onFocus={() => setFocusedField('name')}
+                        onFocus={() => setFocusedField("name")}
                         onBlur={() => setFocusedField(null)}
                         className="transition-all focus:shadow-lg"
                       />
@@ -183,7 +212,7 @@ export function ContactSection() {
                     <motion.div
                       className="space-y-2"
                       animate={{
-                        scale: focusedField === 'email' ? 1.02 : 1,
+                        scale: focusedField === "email" ? 1.02 : 1,
                       }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -192,11 +221,12 @@ export function ContactSection() {
                       </label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="john@example.com"
                         required
                         disabled={isSubmitting}
-                        onFocus={() => setFocusedField('email')}
+                        onFocus={() => setFocusedField("email")}
                         onBlur={() => setFocusedField(null)}
                         className="transition-all focus:shadow-lg"
                       />
@@ -206,7 +236,7 @@ export function ContactSection() {
                   <motion.div
                     className="space-y-2"
                     animate={{
-                      scale: focusedField === 'company' ? 1.02 : 1,
+                      scale: focusedField === "company" ? 1.02 : 1,
                     }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
@@ -215,9 +245,10 @@ export function ContactSection() {
                     </label>
                     <Input
                       id="company"
+                      name="company"
                       placeholder="Your Company"
                       disabled={isSubmitting}
-                      onFocus={() => setFocusedField('company')}
+                      onFocus={() => setFocusedField("company")}
                       onBlur={() => setFocusedField(null)}
                       className="transition-all focus:shadow-lg"
                     />
@@ -226,7 +257,7 @@ export function ContactSection() {
                   <motion.div
                     className="space-y-2"
                     animate={{
-                      scale: focusedField === 'message' ? 1.02 : 1,
+                      scale: focusedField === "message" ? 1.02 : 1,
                     }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
@@ -235,11 +266,12 @@ export function ContactSection() {
                     </label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Tell us about your web development or review management needs..."
                       rows={6}
                       required
                       disabled={isSubmitting}
-                      onFocus={() => setFocusedField('message')}
+                      onFocus={() => setFocusedField("message")}
                       onBlur={() => setFocusedField(null)}
                       className="transition-all focus:shadow-lg resize-none"
                     />
@@ -255,7 +287,7 @@ export function ContactSection() {
                       {isSubmitting ? (
                         <motion.div
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                         >
                           Sending...
                         </motion.div>
