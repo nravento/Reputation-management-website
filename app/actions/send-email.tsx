@@ -20,8 +20,8 @@ export async function sendContactEmail(data: {
     }
 
     const result = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: "nick.raventos1@outlook.com",
+      from: "Contact Form <contact@reputationshieldllc.com>",
+      to: "nick@reputationshieldllc.com",
       subject: `New Contact Form Submission from ${data.name}`,
       html: `
         <h2>New Contact Form Submission</h2>
