@@ -29,8 +29,12 @@ export function ContactSection() {
       message: formData.get("message") as string,
     }
 
+    console.log("[v0] Form submitted with data:", data)
+
     try {
       const result = await sendContactEmail(data)
+
+      console.log("[v0] Email result:", result)
 
       if (result.success) {
         toast({
@@ -39,9 +43,10 @@ export function ContactSection() {
         })
         ;(e.target as HTMLFormElement).reset()
       } else {
+        console.error("[v0] Email send failed:", result.error)
         toast({
           title: "Error",
-          description: "Failed to send message. Please try again or email us directly.",
+          description: result.error || "Failed to send message. Please try again or email us directly.",
           variant: "destructive",
         })
       }

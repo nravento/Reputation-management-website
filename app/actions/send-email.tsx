@@ -1,52 +1,45 @@
 "use server"
 
-export async function sendContactEmail(formData: {
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
+
+export async function sendContactEmail(data: {
   name: string
   email: string
   company?: string
   message: string
 }) {
+  console.log("[v0] Attempting to send email with data:", { ...data, message: data.message.substring(0, 50) + "..." })
+  console.log("[v0] RESEND_API_KEY exists:", !!process.env.RESEND_API_KEY)
+
   try {
-    // Using Resend API to send email
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Contact Form <onboarding@resend.dev>", // You'll update this to your domain later
-        to: ["nick@reputationshieldllc.com"],
-        subject: `New Contact Form Submission from ${formData.name}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${formData.name}</p>
-          <p><strong>Email:</strong> ${formData.email}</p>
-          ${formData.company ? `<p><strong>Company:</strong> ${formData.company}</p>` : ""}
-          <p><strong>Message:</strong></p>
-          <p>${formData.message.replace(/\n/g, "<br>")}</p>
-        `,
-        text: `
-New Contact Form Submission
-
-Name: ${formData.name}
-Email: ${formData.email}
-${formData.company ? `Company: ${formData.company}\n` : ""}
-Message:
-${formData.message}
-        `,
-      }),
-    })
-
-    if (!response.ok) {
-      const error = await response.json()
-      console.error("[v0] Email send error:", error)
-      throw new Error("Failed to send email")
+    if (!process.env.RESEND_API_KEY) {
+      console.error("[v0] RESEND_API_KEY is not set")
+      return { success: false, error: "Email service not configured" }
     }
 
-    return { success: true }
+    const result = await resend.emails.send({
+      from: "Contact Form <onboarding@resend.dev>",
+      to: "nick@reputationshieldllc.com",
+      subject: `New Contact Form Submission from ${data.name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        ${data.company ? `<p><strong>Company:</strong> ${data.company}</p>` : ""}
+        <p><strong>Message:</strong></p>
+        <p>${data.message.replace(/\n/g, "<br>")}</p>
+      `,
+    })
+
+    console.log("[v0] Email sent successfully:", result)
+    return { success: true, data: result }
   } catch (error) {
     console.error("[v0] Error sending email:", error)
-    return { success: false, error: "Failed to send email" }
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Unknown error",
+    }
   }
 }
